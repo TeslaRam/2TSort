@@ -1,10 +1,11 @@
 ##########
 # file: 		Makefile
 # author:	Teslaram
-# date:		10.7.25
 # brief:		Makefile for 2TSort
+# date:		10.7.25
+# see:		https://github.com/TeslaRam/2TSort
 ##########
-##########################
+##################
 ########## VALS ##########
 
 CXX = g++

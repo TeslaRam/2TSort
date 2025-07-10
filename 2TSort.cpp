@@ -3,7 +3,7 @@
  * @author TeslaRam https://github.com/TeslaRam
  * @brief Sorting algorithm
  * @date 10.7.25
- * @see https://github.com/TeslaRam/SORTs
+ * @see https://github.com/TeslaRam/2TSort
  */
 
 #include <cstdlib>
