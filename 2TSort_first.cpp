@@ -43,6 +43,7 @@ int main() {
 	vypis();
   	return 0;
 }
+
 /*
 	5  cisel 	== 0.0644	sekund
 	10 cisel 	== 0.1431 sekund
