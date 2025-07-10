@@ -31,21 +31,20 @@ sort: run
 ##########################
 ########## COMP ##########
 
-COMP_SOURCES := $(wildcard $(COMPS_DIR)/comp_*.cpp)
-COMP_BINS := $(patsubst %.cpp, %, $(COMP_SOURCES))
-
-COMPS_DIR = ./comps
-SRCS = $(COMPS_DIR)/comp_*.cpp
-OBJS = $(SRCS:.cpp=.o)
-
-%.o: %.cpp
+comp_compare.o: ./comps/comp_compare.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+comp_generation.o: ./comps/comp_generation.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+comp_setup_cleanup.o: ./comps/comp_setup_cleanup.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+comp_sorts.o: ./comps/comp_sorts.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-comp: $(OBJS)
-	$(COMPILE)
+comp: comp_compare.o comp_generation.o comp_setup_cleanup.o comp_sorts.o
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 compare: comp
-	./comp > $(COMP_OUT)
+	./comp $(SIZE) # > $(COMP_OUT)
 
 ########## COMP ##########
 ##########################

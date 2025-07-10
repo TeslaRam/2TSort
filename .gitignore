@@ -1,2 +1,4 @@
 2TSort
 comp
+*.o
+comp_out.txt

@@ -12,10 +12,8 @@
 int main(int argc, char* argv[]) {
    srand(time(nullptr));  // to have random numbers
 
-   vector<int> toSort;  // where to store numbers to sort
-
    // sort algorithms that will be compared
-   vector<SortAlgoData> sorts = {
+   vector<SortAlgoData> sortsData = {
        {"2TSort", _2TSort, AlgoTimes()},
        {"QuickSort", quickSort, AlgoTimes()},
        {"BubbleSort", bubbleSort, AlgoTimes()},
@@ -30,7 +28,8 @@ int main(int argc, char* argv[]) {
        {generateReversed, &AlgoTimes::reversed}};
 
    for (SortType& c : cases) {
-      for (SortAlgoData& sortAlg : sorts) {
+      for (SortAlgoData& sortAlg : sortsData) {
+         vector<int> toSort;
          setSortSize(argc, argv, toSort);
          c.generator(toSort);
 
@@ -42,17 +41,40 @@ int main(int argc, char* argv[]) {
       }
    }
 
-   cout << "Algorithm         | Random | Ordered | Reversed" << endl;
-   cout << "-------------------------------------------------------------" << endl;
-   for (const auto& sortAlg : sorts) {
-      cout << sortAlg.name
-           << " | " << sortAlg.times.random_numbers.count()
-           << " | " << sortAlg.times.ordered.count()
-           << " | " << sortAlg.times.reversed.count()
-           << endl;
-   }
-
-   cout << "\tAll times are in ms" << endl;
+   printReults(sortsData);
 
    return 0;
+}
+
+void printReults(vector<SortAlgoData> sortsData) {
+   cout
+       << endl
+       << "+------------------------------------------------+"
+       << endl
+       << "| "
+       << left << setw(13) << "Algorithm"
+       << " | " << right << setw(8) << "Random"
+       << " | " << right << setw(8) << "Ordered"
+       << " | " << right << setw(8) << "Reversed"
+       << " |"
+       << " (ms)"
+       << endl
+       << "+------------------------------------------------+"
+       << endl;
+
+   for (const auto& sortAlg : sortsData) {
+      cout
+          << "| "
+          << left << setw(13) << sortAlg.name
+          << " | " << right << setw(8) << sortAlg.times.random_numbers.count()
+          << " | " << right << setw(8) << sortAlg.times.ordered.count()
+          << " | " << right << setw(8) << sortAlg.times.reversed.count()
+          << " |"
+          << endl;
+   }
+
+   cout
+       << "+------------------------------------------------+"
+       << endl
+       << endl;
 }

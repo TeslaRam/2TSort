@@ -61,3 +61,9 @@ struct SortType {
    SortFun generator;
    Duration AlgoTimes::* duration;
 };
+
+/**
+ * @brief Print results table
+ * @param sortsData Data of measured durations of each sort
+ */
+void printReults(vector<SortAlgoData> sortsData);
