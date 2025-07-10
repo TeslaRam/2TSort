@@ -1,6 +1,6 @@
 ##########
 # file: 		Makefile
-# author:	Teslaram
+# author:	TeslaRam
 # brief:		Makefile for 2TSort
 # date:		10.7.25
 # see:		https://github.com/TeslaRam/2TSort
@@ -9,12 +9,10 @@
 ########## VALS ##########
 
 CXX = g++
-CXXFLAGS = -std=c++11
-
+CXXFLAGS = -std=c++11 -Wall -Wextra -O2
 COMPILE = $(CXX) $(CXXFLAGS) $^ -o $@
 
 SIZE ?= 1000
-
 COMP_OUT=comp_out.txt
 
 ########## VALS ##########
@@ -33,7 +31,17 @@ sort: run
 ##########################
 ########## COMP ##########
 
-comp: compare.cpp
+COMP_SOURCES := $(wildcard $(COMPS_DIR)/comp_*.cpp)
+COMP_BINS := $(patsubst %.cpp, %, $(COMP_SOURCES))
+
+COMPS_DIR = ./comps
+SRCS = $(COMPS_DIR)/comp_*.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+comp: $(OBJS)
 	$(COMPILE)
 
 compare: comp
@@ -43,9 +51,10 @@ compare: comp
 ##########################
 ########## MISC ##########
 
-.PHONY: run compare clean
+.PHONY: run sort compare clean
 
 clean:
-	find . -maxdepth 1 -type f -executable -delete
+	find . -type f -executable -delete
+	find . -type f -name "*.o" -delete
 	rm -f ./$(COMP_OUT)
 	clear
