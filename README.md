@@ -38,33 +38,31 @@ best usage is if you know that array is as close to reversed as possible:
 ```
 
 ## Comparations
-```
-		10 items to sort
-+------------------------------------------------+
-| Algorithm     |   Random |  Ordered | Reversed | (ms)
-+------------------------------------------------+
+> all times are in ms
+
+### 10 items to sort
+
+| Algorithm     |   Random |  Ordered | Reversed |
+|---------------|----------|----------|----------|
 | 2TSort        | 0.000967 |  4.4e-05 | 0.000176 |
 | QuickSort     | 0.000314 | 0.000239 | 0.000378 |
 | BubbleSort    |  0.00031 | 0.000153 | 0.000329 |
 | InsertionSort | 0.000182 |  5.9e-05 | 0.000197 |
 | SelectionSort | 0.000252 | 0.000163 | 0.000243 |
-+------------------------------------------------+
-```
-```
-		1000 items to sort
-+------------------------------------------------+
-| Algorithm     |   Random |  Ordered | Reversed | (ms)
-+------------------------------------------------+
+
+### 1000 items to sort
+
+| Algorithm     |   Random |  Ordered | Reversed |
+|---------------|----------|----------|----------|
 | 2TSort        |  8.00966 | 0.000351 | 0.022629 |
 | QuickSort     | 0.060465 | 0.289017 | 0.219116 |
 | BubbleSort    |  3.12065 | 0.353445 |  2.64407 |
 | InsertionSort | 0.095479 | 0.000805 | 0.156949 |
 | SelectionSort | 0.228026 | 0.173519 | 0.175123 |
-+------------------------------------------------+
-```
-```
-		1 000 000 items to sort
-```
+
+### 1 000 000 items to sort
+
+TBD
 
 ## How to run 
 
@@ -92,6 +90,8 @@ Durations will be stored in `comp_out.txt`
 > run all commands from project's `root` directory
 
 > default `num` value is 1000
+
+---
 
 
 ## How was created
