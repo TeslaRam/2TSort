@@ -10,6 +10,7 @@
 #include <chrono>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 #include <functional>
 #include <iomanip>
 #include <iostream>
@@ -54,16 +55,24 @@ struct SortAlgoData {
 
 /**
  * @brief Type of generated numbers for sort algorithm
+ * @param title Name of generator
  * @param generator Generator function
  * @param duration How many ms it took to sort
  */
 struct SortType {
+   string title;
    SortFun generator;
    Duration AlgoTimes::* duration;
 };
 
 /**
- * @brief Print results table
+ * @brief Print results table into "comp_out.txt" with stdout as fallback
  * @param sortsData Data of measured durations of each sort
  */
-void printReults(vector<SortAlgoData> sortsData);
+void printResults(vector<SortAlgoData> sortsData);
+
+/**
+ * @brief Print emoji on start and end of whole process
+ * @param emoji Emoji to print
+ */
+void printWholeIndicator(string emoji);

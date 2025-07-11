@@ -41,7 +41,7 @@ comp: $(COMP_OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 compare: comp
-	./comp $(SIZE) > $(COMP_OUT)
+	./comp $(SIZE)
 	cat $(COMP_OUT)
 
 ########## COMP ##########

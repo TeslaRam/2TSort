@@ -23,12 +23,17 @@ int main(int argc, char* argv[]) {
 
    // types of order of generated numbers
    SortType cases[] = {
-       {generateRandom, &AlgoTimes::random_numbers},
-       {generateOrdered, &AlgoTimes::ordered},
-       {generateReversed, &AlgoTimes::reversed}};
+       {"Random", generateRandom, &AlgoTimes::random_numbers},
+       {"Ordered", generateOrdered, &AlgoTimes::ordered},
+       {"Reversed", generateReversed, &AlgoTimes::reversed}};
+
+   printWholeIndicator("⌛");
 
    for (SortType& c : cases) {
+      cout << c.title << ":" << endl;
       for (SortAlgoData& sortAlg : sortsData) {
+         cout << "  " << sortAlg.name;
+
          vector<int> toSort;
          setSortSize(argc, argv, toSort);
          c.generator(toSort);
@@ -38,16 +43,27 @@ int main(int argc, char* argv[]) {
          auto end = chrono::high_resolution_clock::now();
 
          sortAlg.times.*(c.duration) = end - start;
+
+         cout << right << setfill('.') << setw(19 - sortAlg.name.length()) << "✅" << endl;
       }
    }
 
-   printReults(sortsData);
+   printWholeIndicator("✅");
+   printResults(sortsData);
 
    return 0;
 }
 
-void printReults(vector<SortAlgoData> sortsData) {
-   cout
+void printResults(vector<SortAlgoData> sortsData) {
+   ofstream fout("comp_out.txt", ofstream::out | ofstream::trunc);
+   ostream* out;
+
+   if (!fout.is_open())
+      out = &cout;
+   else
+      out = &fout;
+
+   (*out)
        << endl
        << "+------------------------------------------------+"
        << endl
@@ -63,7 +79,7 @@ void printReults(vector<SortAlgoData> sortsData) {
        << endl;
 
    for (const auto& sortAlg : sortsData) {
-      cout
+      (*out)
           << "| "
           << left << setw(13) << sortAlg.name
           << " | " << right << setw(8) << sortAlg.times.random_numbers.count()
@@ -73,8 +89,19 @@ void printReults(vector<SortAlgoData> sortsData) {
           << endl;
    }
 
-   cout
+   (*out)
        << "+------------------------------------------------+"
        << endl
        << endl;
+}
+
+void printWholeIndicator(string emoji) {
+   cout << endl
+        << "   ";
+
+   for (int c = 0; c < 7; c++)
+      cout << emoji;
+
+   cout << endl
+        << endl;
 }
