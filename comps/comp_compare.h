@@ -2,7 +2,7 @@
  * @file comp_compare.h
  * @author TeslaRam https://github.com/TeslaRam
  * @brief Data structures for comparation of 2TSort and other sorting algorithms
- * @date 10.7.25
+ * @date 11.7.25
  * @see https://github.com/TeslaRam/2TSort
  */
 
