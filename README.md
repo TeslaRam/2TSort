@@ -67,7 +67,7 @@ TBD
 ## How to run 
 
 - ### 2TSort:
-```make 2TSort``` for creating executable
+`make 2TSort` for creating executable
 
 `./2TSort num` where `num` is `integer` of how many randomized numbers to sort
 
@@ -112,7 +112,7 @@ Jupíí :)
 
 But then I changed enlarged array size and it took waaaaaaaaay too long.
 
-Like soooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo long, that I writed that it took `while(true)` to sort it.
+Like soooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo long, that I stated that it took `while(true)` to sort it.
 
 Yet I was so happy with it that I immediately sent it to my teacher and friends.
 But I continued on upgrading it, and noticed that when I detected trigger (`current + 1` is smaller than `current`), I put that item to start, but then started looping from start again.
