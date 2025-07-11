@@ -68,9 +68,9 @@ void _2TSort() {
       // whether change happened
       bool changed = false;
 
-      for (size_t i = 0; i < lastChange; i++) {  // loop every element that has chance to be moved
-         if (toSort[i] > toSort[i + 1]) {        // if next element is smaller
-            int focusedElement = toSort[i + 1];  // save it
+      for (size_t i = 0; i < lastChange - 1; i++) {  // loop every element that has chance to be moved
+         if (toSort[i] > toSort[i + 1]) {            // if next element is smaller
+            int focusedElement = toSort[i + 1];      // save it
 
             // shift right elements from start to current+1
             for (int j = i + 1; j > 0; j--) {
@@ -79,7 +79,7 @@ void _2TSort() {
 
             toSort[0] = focusedElement;  // put saved element to start
 
-            toSetLastChange = i;  // latest change index
+            toSetLastChange = i + 1;  // latest change index
 
             changed = true;  // change happened
          }

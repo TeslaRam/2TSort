@@ -44,13 +44,13 @@ best usage is if you know that array is as close to reversed as possible:
 
 ### 10 items to sort
 
-| Algorithm     |   Random |  Ordered | Reversed | 
+| Algorithm     |   Random |  Ordered | Reversed |
 |---------------|----------|----------|----------|
-| 2TSort        | 0.000883 |  5.3e-05 | 0.000169 |
-| QuickSort     | 0.000233 | 0.000183 | 0.000403 |
-| BubbleSort    | 0.000358 | 0.000156 | 0.000282 |
-| InsertionSort | 0.000154 |  7.3e-05 | 0.000154 |
-| SelectionSort |  0.00024 | 0.000129 | 0.000206 |
+| 2TSort        | 0.000804 |  4.9e-05 | 0.000129 |
+| QuickSort     | 0.000218 | 0.000174 | 0.000217 |
+| BubbleSort    | 0.000323 | 0.000181 | 0.000256 |
+| InsertionSort |  0.00017 |  7.3e-05 | 0.000157 |
+| SelectionSort | 0.000211 | 0.000153 | 0.000224 |
 
 ---
 
@@ -58,11 +58,11 @@ best usage is if you know that array is as close to reversed as possible:
 
 | Algorithm     |   Random |  Ordered | Reversed |
 |---------------|----------|----------|----------|
-| 2TSort        |  7.64065 | 0.040225 | 0.050484 |
-| QuickSort     | 0.044443 | 0.278339 | 0.187085 |
-| BubbleSort    |  2.41467 | 0.244861 |  2.47161 |
-| InsertionSort | 0.103931 |  0.00072 | 0.149645 |
-| SelectionSort | 0.199785 | 0.149708 | 0.161307 |
+| 2TSort        |   7.0876 | 0.000311 | 0.018968 |
+| QuickSort     | 0.032679 | 0.249517 | 0.191687 |
+| BubbleSort    |  1.38874 | 0.233244 |  2.43119 |
+| InsertionSort | 0.081555 | 0.000692 | 0.154873 |
+| SelectionSort | 0.187002 | 0.146265 | 0.170174 |
 
 ---
 
@@ -70,11 +70,11 @@ best usage is if you know that array is as close to reversed as possible:
 
 | Algorithm     |   Random |  Ordered | Reversed |
 |---------------|----------|----------|----------|
-| 2TSort        |  24501.6 | 0.007066 |  30.2615 |
-| QuickSort     |  0.81963 |  115.255 |   79.665 |
-| BubbleSort    |  868.532 |   107.89 |   968.23 |
-| InsertionSort |  33.6388 | 0.014181 |  85.3589 |
-| SelectionSort |  69.8412 |  70.7724 |  75.7076 |
+| 2TSort        |  23395.2 | 0.006783 |  9.94553 |
+| QuickSort     | 0.840359 |  112.054 |  80.3968 |
+| BubbleSort    |  780.259 |   108.29 |  929.034 |
+| InsertionSort |   45.369 | 0.013495 |  56.4755 |
+| SelectionSort |  71.3068 |  68.6603 |  60.2322 |
 
 ---
 

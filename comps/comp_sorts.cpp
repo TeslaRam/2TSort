@@ -16,7 +16,7 @@ void _2TSort(vector<int>& toSort) {
       size_t toSetLastChange = 0;
       bool changed = false;
 
-      for (size_t i = 0; i < lastChange; i++) {
+      for (size_t i = 0; i < lastChange - 1; i++) {
          if (toSort[i] > toSort[i + 1]) {
             int focusedElement = toSort[i + 1];
 
@@ -24,7 +24,7 @@ void _2TSort(vector<int>& toSort) {
                toSort[j] = toSort[j - 1];
 
             toSort[0] = focusedElement;
-            toSetLastChange = i;
+            toSetLastChange = i + 1;
             changed = true;
          }
       }
