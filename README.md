@@ -40,6 +40,11 @@ best usage is if you know that array is as close to reversed as possible:
 ## Comparations
 > all times are in ms
 
+Measured on:
+- **OS:**   Linux Debian 12
+- **Proc:** 20 × 12th Gen Intel® Core™ i7-12700H
+- **RAM:**  15.3 Gib
+
 ---
 
 ### 10 items to sort
