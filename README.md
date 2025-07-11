@@ -18,7 +18,7 @@ And as final naming step, **`2TSort`** was made up.
 - Then keep looping to end of array
 
 >
-- If change happened, do it again
+- If change happened, do it again, but loop only till `last change index`
 
 ```
 3 1 2		// desorted
@@ -40,29 +40,43 @@ best usage is if you know that array is as close to reversed as possible:
 ## Comparations
 > all times are in ms
 
+---
+
 ### 10 items to sort
 
-| Algorithm     |   Random |  Ordered | Reversed |
+| Algorithm     |   Random |  Ordered | Reversed | 
 |---------------|----------|----------|----------|
-| 2TSort        | 0.000967 |  4.4e-05 | 0.000176 |
-| QuickSort     | 0.000314 | 0.000239 | 0.000378 |
-| BubbleSort    |  0.00031 | 0.000153 | 0.000329 |
-| InsertionSort | 0.000182 |  5.9e-05 | 0.000197 |
-| SelectionSort | 0.000252 | 0.000163 | 0.000243 |
+| 2TSort        | 0.000883 |  5.3e-05 | 0.000169 |
+| QuickSort     | 0.000233 | 0.000183 | 0.000403 |
+| BubbleSort    | 0.000358 | 0.000156 | 0.000282 |
+| InsertionSort | 0.000154 |  7.3e-05 | 0.000154 |
+| SelectionSort |  0.00024 | 0.000129 | 0.000206 |
+
+---
 
 ### 1000 items to sort
 
 | Algorithm     |   Random |  Ordered | Reversed |
 |---------------|----------|----------|----------|
-| 2TSort        |  8.00966 | 0.000351 | 0.022629 |
-| QuickSort     | 0.060465 | 0.289017 | 0.219116 |
-| BubbleSort    |  3.12065 | 0.353445 |  2.64407 |
-| InsertionSort | 0.095479 | 0.000805 | 0.156949 |
-| SelectionSort | 0.228026 | 0.173519 | 0.175123 |
+| 2TSort        |  7.64065 | 0.040225 | 0.050484 |
+| QuickSort     | 0.044443 | 0.278339 | 0.187085 |
+| BubbleSort    |  2.41467 | 0.244861 |  2.47161 |
+| InsertionSort | 0.103931 |  0.00072 | 0.149645 |
+| SelectionSort | 0.199785 | 0.149708 | 0.161307 |
 
-### 1 000 000 items to sort
+---
 
-TBD
+### 20 000 items to sort
+
+| Algorithm     |   Random |  Ordered | Reversed |
+|---------------|----------|----------|----------|
+| 2TSort        |  24501.6 | 0.007066 |  30.2615 |
+| QuickSort     |  0.81963 |  115.255 |   79.665 |
+| BubbleSort    |  868.532 |   107.89 |   968.23 |
+| InsertionSort |  33.6388 | 0.014181 |  85.3589 |
+| SelectionSort |  69.8412 |  70.7724 |  75.7076 |
+
+---
 
 ## How to run 
 
@@ -125,3 +139,8 @@ But still not as quick as others.
 I showed it to my friend [Damko](https://github.com/Damko757), and he just removed `print()` from `for-loop`.
 
 And suddenly sorting times acceptably dropped :)
+
+Last optimalisation I wanted for few years is to don't loop whole array every time, but loop just whats needed.
+11.7.25 I implemented it :)
+
+![2TSort logo](2TSort.png)

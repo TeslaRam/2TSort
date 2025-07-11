@@ -57,12 +57,20 @@ void setSortSize(int argc, char *argv[]) {
 
 /** sort [toSort] array using 2TSort algorithm */
 void _2TSort() {
+   // index of last triggered position
+   size_t lastChange = toSort.size();
+
    while (true) {  // while change happened
+
+      // to set index of last trigerred position (set after whole array id checked)
+      size_t toSetLastChange = 0;
+
+      // whether change happened
       bool changed = false;
 
-      for (size_t i = 0; i < toSort.size() - 1; i++) {  // loop every element
-         if (toSort[i] > toSort[i + 1]) {               // if next element is smaller
-            int focusedElement = toSort[i + 1];         // save it
+      for (size_t i = 0; i < lastChange; i++) {  // loop every element that has chance to be moved
+         if (toSort[i] > toSort[i + 1]) {        // if next element is smaller
+            int focusedElement = toSort[i + 1];  // save it
 
             // shift right elements from start to current+1
             for (int j = i + 1; j > 0; j--) {
@@ -71,11 +79,15 @@ void _2TSort() {
 
             toSort[0] = focusedElement;  // put saved element to start
 
+            toSetLastChange = i;  // latest change index
+
             changed = true;  // change happened
          }
       }
 
       if (!changed) break;  // if nothing changes, array is sorted
+
+      lastChange = toSetLastChange;  // set safe zone (whats later (left) than this, is sorted)
    }
 }
 

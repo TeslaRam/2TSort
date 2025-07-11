@@ -10,19 +10,27 @@
 #include "comp_sorts.h"
 
 void _2TSort(vector<int>& toSort) {
+   size_t lastChange = toSort.size();
+
    while (true) {
+      size_t toSetLastChange = 0;
       bool changed = false;
-      for (size_t i = 0; i < toSort.size() - 1; i++) {
+
+      for (size_t i = 0; i < lastChange; i++) {
          if (toSort[i] > toSort[i + 1]) {
             int focusedElement = toSort[i + 1];
-            for (int j = i + 1; j > 0; j--) {
+
+            for (int j = i + 1; j > 0; j--)
                toSort[j] = toSort[j - 1];
-            }
+
             toSort[0] = focusedElement;
+            toSetLastChange = i;
             changed = true;
          }
       }
+
       if (!changed) break;
+      lastChange = toSetLastChange;
    }
 }
 
