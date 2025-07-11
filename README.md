@@ -1,7 +1,7 @@
 # 2TSort
 
 ## Name / about
-> To Start - To Sort
+> **T**o **S**tart - **T**o **S**ort
 
 Symbolizes putting items to start in order to sort it.
 
@@ -38,30 +38,61 @@ best usage is if you know that array is as close to reversed as possible:
 ```
 
 ## Comparations
-in ms
-- random 10000 elements 1 2 3
-- reversed
-- sorted
+```
+		10 items to sort
++------------------------------------------------+
+| Algorithm     |   Random |  Ordered | Reversed | (ms)
++------------------------------------------------+
+| 2TSort        | 0.000967 |  4.4e-05 | 0.000176 |
+| QuickSort     | 0.000314 | 0.000239 | 0.000378 |
+| BubbleSort    |  0.00031 | 0.000153 | 0.000329 |
+| InsertionSort | 0.000182 |  5.9e-05 | 0.000197 |
+| SelectionSort | 0.000252 | 0.000163 | 0.000243 |
++------------------------------------------------+
+```
+```
+		1000 items to sort
++------------------------------------------------+
+| Algorithm     |   Random |  Ordered | Reversed | (ms)
++------------------------------------------------+
+| 2TSort        |  8.00966 | 0.000351 | 0.022629 |
+| QuickSort     | 0.060465 | 0.289017 | 0.219116 |
+| BubbleSort    |  3.12065 | 0.353445 |  2.64407 |
+| InsertionSort | 0.095479 | 0.000805 | 0.156949 |
+| SelectionSort | 0.228026 | 0.173519 | 0.175123 |
++------------------------------------------------+
+```
+```
+		1 000 000 items to sort
+```
 
-Quick sort:
--  |  |
-- 
-- 
+## How to run 
 
-Selection sort:
--  |  |
-- 
-- 
+- ### 2TSort:
+`make 2TSort` for creating executable
 
-Bubble sort:
--  |  |
-- 
-- 
+`./2TSort num` where `num` is `integer` of how many randomized numbers to sort
 
-2TSort:
--  |  |
-- 
-- 
+or `make run` or `make sort`, with optional attribute `SIZE=num` where 'num' is same as mentioned before
+(so whole command can look like `make sort SIZE=1000000`)
+
+- ### Comparation:
+
+`make comp` for creating executable
+
+`./comp num` where `num` is `integer` of how many randomized numbers to sort
+
+or `make compare`, with optional attribute `SIZE=num` where 'num' is same as mentioned before
+(so whole command can look like `make compare SIZE=1000000`)
+
+Durations will be stored in `comp_out.txt`
+
+---
+
+> run all commands from project's `root` directory
+
+> default `num` value is 1000
+
 
 ## How was created
 In 2nd year of my high-school studies at [SSND](https://it-lyceum.tech/) we were learning C++.
@@ -93,6 +124,4 @@ But still not as quick as others.
 
 I showed it to my friend [Damko](https://github.com/Damko757), and he just removed `print()` from `for-loop`.
 
-And suddenly there were good sorting times :)
-
-TODO: makefile how to run
+And suddenly sorting times acceptably dropped :)
