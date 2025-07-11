@@ -67,7 +67,7 @@ TBD
 ## How to run 
 
 - ### 2TSort:
-`make 2TSort` for creating executable
+```make 2TSort``` for creating executable
 
 `./2TSort num` where `num` is `integer` of how many randomized numbers to sort
 
